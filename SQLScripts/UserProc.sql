@@ -1,0 +1,32 @@
+-- добавить пользователя
+GO
+CREATE PROCEDURE AddUser
+ @USER_LOGIN NVARCHAR(50),
+ @USER_PASSWORD INT
+AS
+BEGIN
+ INSERT INTO Users([USER_LOGIN],[USER_PASSWORD]) 
+ VALUES(@USER_LOGIN, @USER_PASSWORD)
+ END
+
+-- удалить пользователя по индексу
+GO
+CREATE PROCEDURE RemoveUser
+@ID int
+AS
+BEGIN
+DELETE FROM User_To_Achievement
+WHERE ID_USER = @ID
+DELETE FROM Users
+WHERE ID = @ID
+END
+
+-- выбрать всех пользователей
+GO
+CREATE PROCEDURE GetAllUsers
+AS
+BEGIN
+SELECT USER_LOGIN
+FROM Users
+ORDER BY ID
+END

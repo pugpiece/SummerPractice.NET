@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{785C40FD-C4D0-430C-8579-E00B0EDF3BF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Achievements.Entities", "Entities\Achievements.Entities.csproj", "{7001E0B0-6158-48E4-8A34-8E5772CE51CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{7B3496CB-605B-4863-B7BD-F4685B2AA4AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Achievements.DAL", "Achievements.DAL\Achievements.DAL.csproj", "{929C6A4A-48F3-4C46-9048-938AAA85C141}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLScripts", "SQLScripts", "{848D2A6A-41B0-499A-A02E-10A2AA3A2727}"
+	ProjectSection(SolutionItems) = preProject
+		SQLScripts\AchievementProc.sql = SQLScripts\AchievementProc.sql
+		SQLScripts\CreateDataBase.sql = SQLScripts\CreateDataBase.sql
+		SQLScripts\DeleteDataBase.sql = SQLScripts\DeleteDataBase.sql
+		SQLScripts\UserProc.sql = SQLScripts\UserProc.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{97E3611E-53E9-4127-8ED7-F26FEFA3788A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Achievements.BLL", "Achievements.BLL\Achievements.BLL.csproj", "{F963E7AE-09AA-4C78-8F8F-212A2988CF91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7001E0B0-6158-48E4-8A34-8E5772CE51CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7001E0B0-6158-48E4-8A34-8E5772CE51CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7001E0B0-6158-48E4-8A34-8E5772CE51CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7001E0B0-6158-48E4-8A34-8E5772CE51CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{929C6A4A-48F3-4C46-9048-938AAA85C141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{929C6A4A-48F3-4C46-9048-938AAA85C141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{929C6A4A-48F3-4C46-9048-938AAA85C141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{929C6A4A-48F3-4C46-9048-938AAA85C141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F963E7AE-09AA-4C78-8F8F-212A2988CF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F963E7AE-09AA-4C78-8F8F-212A2988CF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F963E7AE-09AA-4C78-8F8F-212A2988CF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F963E7AE-09AA-4C78-8F8F-212A2988CF91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7001E0B0-6158-48E4-8A34-8E5772CE51CD} = {785C40FD-C4D0-430C-8579-E00B0EDF3BF3}
+		{929C6A4A-48F3-4C46-9048-938AAA85C141} = {7B3496CB-605B-4863-B7BD-F4685B2AA4AD}
+		{F963E7AE-09AA-4C78-8F8F-212A2988CF91} = {97E3611E-53E9-4127-8ED7-F26FEFA3788A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DD7A598-5476-4318-990F-ACE48FFF1F7F}
+	EndGlobalSection
+EndGlobal
