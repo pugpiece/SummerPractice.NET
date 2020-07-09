@@ -17,20 +17,26 @@ namespace Achievements.BLL
             AchievementDao = new AchievementDaoDB();
         }
 
-        public void AddAchievement(Achievement value)
+        public void Add(Achievement value)
         {
-            AchievementDao.AddAchievement(value);
+            AchievementDao.Add(value);
         }
 
-        public IEnumerable<Achievement> GetAllAchievements()
+        public Achievement FindId(int index)
         {
-            IEnumerable<Achievement>  result = AchievementDao.GetAllAchievements();
+            Achievement result = AchievementDao.FindId(index);
             return result;
         }
 
-        public void RemoveAchievement(int index)
+        public IEnumerable<Achievement> GetAll()
         {
-            AchievementDao.RemoveAchievement(index);
+            IEnumerable<Achievement> result = AchievementDao.GetAll();
+            return result;
+        }
+
+        public void Remove(int index)
+        {
+            AchievementDao.Remove(index);
         }
     }
 }

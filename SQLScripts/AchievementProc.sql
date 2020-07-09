@@ -30,3 +30,14 @@ SELECT ACHIEVEMENT_NAME, ACHIEVEMENT_DESCRIPTION
 FROM Achievements
 ORDER BY ID
 END
+
+-- найти пользователя по id
+GO
+CREATE PROCEDURE FindIdAchievement
+@ID int
+AS
+BEGIN
+	SELECT *
+	FROM Achievements
+	WHERE ID = @ID
+END

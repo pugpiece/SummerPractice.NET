@@ -41,10 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AchievementDaoDB.cs" />
-    <Compile Include="IAchievementDao.cs" />
-    <Compile Include="IUserDao.cs" />
+    <Compile Include="Interfaces\IAchievementDao.cs" />
+    <Compile Include="Interfaces\IUserDao.cs" />
+    <Compile Include="Interfaces\IUtoADao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDaoDB.cs" />
+    <Compile Include="UtoADaoDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Achievements.Entities.csproj">

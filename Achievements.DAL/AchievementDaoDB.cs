@@ -12,7 +12,7 @@ namespace Achievements.DAL
     {
         private string connectionstring = @"Data Source=.\SQLEXPRESS;Initial Catalog=Achievements;Integrated Security=True";
 
-        public void AddAchievement(Achievement value)
+        public void Add(Achievement value)
         {
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
@@ -38,7 +38,37 @@ namespace Achievements.DAL
             }
         }
 
-        public IEnumerable<Achievement> GetAllAchievements()
+        public Achievement FindId(int index)
+        {
+            var result = new Achievement();
+            using (SqlConnection connection = new SqlConnection(connectionstring))
+            {
+                SqlCommand command = new SqlCommand("FindIdAchievement", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var parameteId = command.CreateParameter();
+                parameteId.DbType = System.Data.DbType.Int32;
+                parameteId.Value = index;
+                parameteId.ParameterName = "@ID";
+                command.Parameters.Add(parameteId);
+
+                connection.Open();
+                SqlDataReader read = command.ExecuteReader();
+                while (read.Read())
+                {
+                    int id = (int)read["ID"];
+                    string achievement_name = (string)read["ACHIEVEMENT_NAME"];
+                    string achievement_description = (string)read["ACHIEVEMENT_DESCRIPTION"];
+
+                    Achievement achievement = new Achievement(id, achievement_name, achievement_description);
+
+                    result = achievement;
+                }
+            }
+            return result;
+        }
+
+        public IEnumerable<Achievement> GetAll()
         {
             var result = new List<Achievement>();
             using (SqlConnection connection = new SqlConnection(connectionstring))
@@ -61,7 +91,7 @@ namespace Achievements.DAL
             return result;
         }
 
-        public void RemoveAchievement(int index)
+        public void Remove(int index)
         {
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {

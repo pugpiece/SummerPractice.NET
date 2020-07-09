@@ -17,25 +17,38 @@ namespace Achievements.BLL
             UserDao = new UserDaoDB();
         }
 
-        public void AddAchievement(int achievementID, int userID)
+        public void Add(User value)
         {
-            UserDao.AddAchievement(achievementID, userID);
+            UserDao.Add(value);
         }
 
-        public void AddUser(User value)
+        public User FindId(int id)
         {
-            UserDao.AddUser(value);
-        }
-
-        public IEnumerable<User> GetAllUsers()
-        {
-            IEnumerable<User> result = UserDao.GetAllUsers();
+            User result = UserDao.FindId(id);
             return result;
         }
 
-        public void RemoveUser(int index)
+        public User FindLogin(string login)
         {
-            UserDao.RemoveUser(index);
+            User result = UserDao.FindLogin(login);
+            return result;
+        }
+
+        public IEnumerable<User> GetAll()
+        {
+            IEnumerable<User> result = UserDao.GetAll();
+            return result;
+        }
+
+        public bool Log(User value)
+        {
+            bool result = UserDao.Log(value);
+            return result;
+        }
+
+        public void Remove(int index)
+        {
+            UserDao.Remove(index);
         }
     }
 }
