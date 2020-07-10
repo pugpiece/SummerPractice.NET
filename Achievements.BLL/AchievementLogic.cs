@@ -8,7 +8,7 @@ using Entities;
 
 namespace Achievements.BLL
 {
-    class AchievementLogic : IAchievementLogic
+    public class AchievementLogic : IAchievementLogic
     {
         private IAchievementDao AchievementDao;
 

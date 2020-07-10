@@ -48,6 +48,9 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,14 +92,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\validateForm.js" />
+    <Content Include="Styles\Default.css" />
+    <Content Include="Styles\Login.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Layout\Layout.cshtml" />
+    <Content Include="Layouts\Default.cshtml" />
+    <Content Include="Index.cshtml" />
+    <Content Include="Fonts\mainFont.ttf" />
     <None Include="packages.config" />
+    <Content Include="Pages\Login\Authorization.cshtml" />
+    <Content Include="Pages\Login\SignIn.cshtml" />
+    <Content Include="Pages\Login\SignInError.cshtml" />
+    <Content Include="Pages\Login\SignUp.cshtml" />
+    <Content Include="Pages\Login\SignUpSuccess.cshtml" />
+    <Content Include="Pages\Login\SignUpFailure.cshtml" />
+    <Content Include="Pages\AddAchievement.cshtml" />
+    <Content Include="Pages\Login\Logout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -108,6 +124,10 @@
     <ProjectReference Include="..\Achievements.BLL\Achievements.BLL.csproj">
       <Project>{f963e7ae-09aa-4c78-8f8f-212a2988cf91}</Project>
       <Name>Achievements.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Achievements.DependencyResolver\Achievements.DependencyResolver.csproj">
+      <Project>{a54a3d30-5e8f-480e-a3b3-c90c3725c5cb}</Project>
+      <Name>Achievements.DependencyResolver</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Achievements.Entities.csproj">
       <Project>{7001e0b0-6158-48e4-8a34-8e5772ce51cd}</Project>

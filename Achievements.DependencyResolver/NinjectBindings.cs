@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Achievements.DAL.Interfaces;
+using Achievements.DAL;
+using Ninject.Modules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Achievements.BLL.Interfaces;
+using Achievements.BLL;
 
 namespace Achievements.DependencyResolver
 {
@@ -10,9 +15,9 @@ namespace Achievements.DependencyResolver
     {
         public override void Load()
         {
-            Bind<IUtoADao>().To<UtoADao>();
-            Bind<IAchievementDao>().To<AchievementDao>();
-            Bind<IUserDao>().To<UserDao>();
+            Bind<IUtoADao>().To<UtoADaoDB>();
+            Bind<IAchievementDao>().To<AchievementDaoDB>();
+            Bind<IUserDao>().To<UserDaoDB>();
 
             Bind<IUtoALogic>().To<UtoALogic>();
             Bind<IAchievementLogic>().To<AchievementLogic>();

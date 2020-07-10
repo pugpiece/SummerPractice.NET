@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ninject;
 
 namespace Achievements.DependencyResolver
 {
-    class DependencyResolver
+    public class DependencyResolver
     {
         private static NinjectBindings bindings = new NinjectBindings();
-        public static StandardKernel Kernel = new StandardKernel(_bindings);
+        public static StandardKernel Kernel = new StandardKernel(bindings);
     }
 }

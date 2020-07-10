@@ -1,0 +1,52 @@
+﻿@using Entities
+@using Achievements.BLL
+@using Achievements.DependencyResolver
+@using Ninject
+
+@{
+    Layout = null;
+    var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+}
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AchievementsAndUsers</title>
+    <link href="~/Styles/Default.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div>
+
+        <header>
+            @RenderSection("Header")
+
+            <h1 class="h1-title">Achievements And Users</h1>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="~/Pages/" class="menu-element"></a>
+                User user = userLogic.FindLogin(User.Identity.Name);
+                <div class="menu-element">
+                    @User.Identity.Name
+                </div>
+            }
+            else
+            {
+                <a href="~/Pages/Login/Authorization" class="login-element">Login</a>
+            }
+        </header>
+
+        <div class="content">
+            <div class="content-conteiner">
+                <a href="~/Pages/Login/Logout.cshtml" class="menu-element">Logout</a>
+                <a href="~/Pages/AddAchievement.cshtml" class="menu-element">Add</a>
+            </div>
+
+            <div class="usability-content">
+                @RenderBody()
+            </div>
+
+        </div>
+</body>
+</html>

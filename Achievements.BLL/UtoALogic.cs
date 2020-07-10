@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Achievements.BLL
 {
-    class UtoALogic : IUtoALogic
+    public class UtoALogic : IUtoALogic
     {
         private IUtoADao UtoADao;
 
