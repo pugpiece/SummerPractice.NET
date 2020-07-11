@@ -113,6 +113,12 @@
     <Content Include="Pages\Login\SignUpFailure.cshtml" />
     <Content Include="Pages\AddAchievement.cshtml" />
     <Content Include="Pages\Login\Logout.cshtml" />
+    <Content Include="Pages\AddLogic\Add.cshtml" />
+    <Content Include="Pages\ShowAllAchievements.cshtml" />
+    <Content Include="Pages\ShowAllLogic\Delete.cshtml" />
+    <Content Include="Pages\UserList.cshtml" />
+    <Content Include="Pages\GiveAchievement.cshtml" />
+    <Content Include="Pages\GiveLogic\Give.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -134,6 +140,7 @@
       <Name>Achievements.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

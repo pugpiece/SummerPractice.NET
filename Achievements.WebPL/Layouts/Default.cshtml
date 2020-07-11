@@ -25,11 +25,7 @@
             <h1 class="h1-title">Achievements And Users</h1>
             @if (User.Identity.IsAuthenticated)
             {
-                <a href="~/Pages/" class="menu-element"></a>
-                User user = userLogic.FindLogin(User.Identity.Name);
-                <div class="menu-element">
-                    @User.Identity.Name
-                </div>
+                <a href="~/Index.cshtml" class="login-element">@User.Identity.Name</a>
             }
             else
             {
@@ -41,6 +37,9 @@
             <div class="content-conteiner">
                 <a href="~/Pages/Login/Logout.cshtml" class="menu-element">Logout</a>
                 <a href="~/Pages/AddAchievement.cshtml" class="menu-element">Add</a>
+                <a href="~/Pages/ShowAllAchievements.cshtml" class="menu-element">Show All</a>
+                <a href="~/Pages/GiveAchievement.cshtml" class="menu-element">Give</a>
+                <a href="~/Pages/UserList.cshtml" class="menu-element">User List</a>
             </div>
 
             <div class="usability-content">

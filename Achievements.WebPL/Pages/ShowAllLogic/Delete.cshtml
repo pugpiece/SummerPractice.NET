@@ -1,0 +1,30 @@
+﻿@using Entities
+@using Achievements.BLL
+@using Achievements.DependencyResolver
+@using Ninject
+@{
+
+    Layout = "~/Layouts/Default.cshtml";
+    var achievementLogic = DependencyResolver.Kernel.Get<IAchievementLogic>();
+}
+@section Header{}
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (IsPost)
+    {
+
+        int index;
+        if (Request["Action"] != null &&
+            Request["Action"] == "Delete" &&
+            int.TryParse(Request["AchievementId"], out index))
+        {
+            achievementLogic.Remove(index);
+            <h1 class="h1-title">All recordings of this achievement have been successfully deleted!</h1>
+        }
+    }
+}
+else
+{
+    Response.Redirect("~/index.cshtml");
+}

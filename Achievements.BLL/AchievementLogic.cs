@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Achievements.DAL;
+using Achievements.DAL.Interfaces;
 using Entities;
 
 namespace Achievements.BLL
@@ -11,10 +12,12 @@ namespace Achievements.BLL
     public class AchievementLogic : IAchievementLogic
     {
         private IAchievementDao AchievementDao;
+        private IUtoADao UtoADao;
 
         public AchievementLogic()
         {
             AchievementDao = new AchievementDaoDB();
+            UtoADao = new UtoADaoDB();
         }
 
         public void Add(Achievement value)
@@ -36,6 +39,7 @@ namespace Achievements.BLL
 
         public void Remove(int index)
         {
+            UtoADao.RemoveAchievement(index);
             AchievementDao.Remove(index);
         }
     }

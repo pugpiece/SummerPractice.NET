@@ -27,7 +27,7 @@ namespace Achievements.DAL
                 command.Parameters.Add(parameteName);
 
                 var parameteDescription = command.CreateParameter();
-                parameteDescription.DbType = System.Data.DbType.Int32;
+                parameteDescription.DbType = System.Data.DbType.String;
                 parameteDescription.Value = value.description;
                 parameteDescription.ParameterName = "@ACHIEVEMENT_DESCRIPTION";
                 command.Parameters.Add(parameteDescription);

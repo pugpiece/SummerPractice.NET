@@ -6,4 +6,24 @@
     Layout = "~/Layouts/Default.cshtml";
 }
 @section Header{}
+<body>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1 class="h1-title">To add any acievements you have to Sign In (click Login ^)</h1>
+    }
+    else
+    {
+        <form action="~/Pages/AddLogic/Add.cshtml" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="Action" value="Upload" />
 
+            <label class="signin-form-label">Enter Achievement Name</label>
+            <input required maxlength="30" minlength="4" class="signin-form-input" type="text" id="username-signin" name="AchievementName" value="" placeholder="Name" />
+
+            <label class="signin-form-label">Enter Achievement Description</label>
+            <input required maxlength="100" minlength="4" class="signin-form-input" type="text" id="username-signin" name="AchievementDescription" value="" placeholder="Description" />
+
+
+            <button type="submit" class="button-sign-in">Add</button>
+        </form>
+    }
+</body>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Achievements.DAL;
+using Achievements.DAL.Interfaces;
 using Entities;
 
 namespace Achievements.BLL
@@ -11,10 +12,12 @@ namespace Achievements.BLL
     public class UserLogic : IUserLogic
     {
         private IUserDao UserDao;
+        private IUtoADao UtoADao;
 
         public UserLogic()
         {
             UserDao = new UserDaoDB();
+            UtoADao = new UtoADaoDB();
         }
 
         public void Add(User value)
@@ -48,6 +51,7 @@ namespace Achievements.BLL
 
         public void Remove(int index)
         {
+            UtoADao.RemoveUser(index);
             UserDao.Remove(index);
         }
     }
