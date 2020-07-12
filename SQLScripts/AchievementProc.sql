@@ -31,7 +31,7 @@ FROM Achievements
 ORDER BY ID
 END
 
--- найти пользователя по id
+-- найти достижение по id
 GO
 CREATE PROCEDURE FindIdAchievement
 @ID int
@@ -40,4 +40,28 @@ BEGIN
 	SELECT *
 	FROM Achievements
 	WHERE ID = @ID
+END
+
+-- найти все достижения пользователя
+GO
+CREATE PROCEDURE GetAllUserAchievements
+@ID_USER INT
+AS
+BEGIN
+	SELECT ACHIEVEMENT_NAME
+	FROM   Achievements INNER JOIN
+                  User_To_Achievement ON Achievements.ID = User_To_Achievement.ID_ACHIEVEMENT INNER JOIN
+                  Users ON User_To_Achievement.ID_USER = Users.ID
+	WHERE User_To_Achievement.ID_USER = @ID_USER
+END
+
+-- найти достижение по названию
+GO
+CREATE PROCEDURE FindNameAchievement
+ @ACHIEVEMENT_NAME NVARCHAR(50)
+AS
+BEGIN
+	SELECT *
+	FROM Achievements
+	WHERE ACHIEVEMENT_NAME = @ACHIEVEMENT_NAME
 END

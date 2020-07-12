@@ -31,9 +31,21 @@ namespace Achievements.BLL
             return result;
         }
 
+        public Achievement FindName(string name)
+        {
+            Achievement result = AchievementDao.FindName(name);
+            return result;
+        }
+
         public IEnumerable<Achievement> GetAll()
         {
             IEnumerable<Achievement> result = AchievementDao.GetAll();
+            return result;
+        }
+
+        public IEnumerable<Achievement> GetAllUsers(int index)
+        {
+            IEnumerable<Achievement> result = AchievementDao.GetAllUsers(index);
             return result;
         }
 

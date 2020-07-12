@@ -1,0 +1,56 @@
+﻿@using Entities
+@using Achievements.BLL
+@using Achievements.DependencyResolver
+@using Ninject
+@{
+    Layout = "~/Layouts/Default.cshtml";
+    var achievementLogic = DependencyResolver.Kernel.Get<IAchievementLogic>();
+}
+@section Header{}
+<form action="~/Pages/SearchAchievements.cshtml" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="Action" value="Search">
+    <input type="text" name="Search" value="" />
+    <button type="submit"> Search!</button>
+</form>
+<body>
+    @if (IsPost)
+    {
+        if (Request["Action"] == "Search" &&
+           Request["Search"] != null &&
+           Request["Search"] != "")
+        {
+            if (achievementLogic.FindName(Request["Search"]).id != 0)
+            {
+                <div class="file-row">
+                    <div class="text-in-row">
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                        <div class="text-in-row">
+                            @achievementLogic.FindName(Request["Search"]).id
+                            |
+                            @achievementLogic.FindName(Request["Search"]).name
+                            |
+                            @achievementLogic.FindName(Request["Search"]).description
+                        </div>
+                        }
+                        else
+                        {
+                            <div class="text-in-row">
+                                To Ask request you have to sign in
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <div class="text-in-row">
+                    There is no such achievement
+                </div>
+            }
+        }
+    }
+</body>

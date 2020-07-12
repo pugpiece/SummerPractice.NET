@@ -26,5 +26,10 @@ namespace Entities
             this.name = name;
             this.description = description;
         }
+
+        public Achievement(string name)
+        {
+            this.name = name;
+        }
     }
 }

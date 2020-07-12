@@ -119,6 +119,7 @@
     <Content Include="Pages\UserList.cshtml" />
     <Content Include="Pages\GiveAchievement.cshtml" />
     <Content Include="Pages\GiveLogic\Give.cshtml" />
+    <Content Include="Pages\SearchAchievements.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

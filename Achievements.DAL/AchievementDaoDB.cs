@@ -68,6 +68,36 @@ namespace Achievements.DAL
             return result;
         }
 
+        public Achievement FindName(string index)
+        {
+            var result = new Achievement();
+            using (SqlConnection connection = new SqlConnection(connectionstring))
+            {
+                SqlCommand command = new SqlCommand("FindNameAchievement", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var parameteName = command.CreateParameter();
+                parameteName.DbType = System.Data.DbType.String;
+                parameteName.Value = index;
+                parameteName.ParameterName = "@ACHIEVEMENT_NAME";
+                command.Parameters.Add(parameteName);
+
+                connection.Open();
+                SqlDataReader read = command.ExecuteReader();
+                while (read.Read())
+                {
+                    int id = (int)read["ID"];
+                    string achievement_name = (string)read["ACHIEVEMENT_NAME"];
+                    string achievement_description = (string)read["ACHIEVEMENT_DESCRIPTION"];
+
+                    Achievement achievement = new Achievement(id, achievement_name, achievement_description);
+
+                    result = achievement;
+                }
+            }
+            return result;
+        }
+
         public IEnumerable<Achievement> GetAll()
         {
             var result = new List<Achievement>();
@@ -84,6 +114,34 @@ namespace Achievements.DAL
                     string description = (string)read["ACHIEVEMENT_DESCRIPTION"];
 
                     Achievement achievement = new Achievement(id, name, description);
+
+                    result.Add(achievement);
+                }
+            }
+            return result;
+        }
+
+        public IEnumerable<Achievement> GetAllUsers(int index)
+        {
+            var result = new List<Achievement>();
+            using (SqlConnection connection = new SqlConnection(connectionstring))
+            {
+                SqlCommand command = new SqlCommand("GetAllUserAchievements", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var parameteId = command.CreateParameter();
+                parameteId.DbType = System.Data.DbType.Int32;
+                parameteId.Value = index;
+                parameteId.ParameterName = "@ID_USER";
+                command.Parameters.Add(parameteId);
+
+                connection.Open();
+                SqlDataReader read = command.ExecuteReader();
+                while (read.Read())
+                {
+                    string name = (string)read["ACHIEVEMENT_NAME"];
+
+                    Achievement achievement = new Achievement(name);
 
                     result.Add(achievement);
                 }

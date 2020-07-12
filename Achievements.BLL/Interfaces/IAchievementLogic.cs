@@ -13,5 +13,8 @@ namespace Achievements.BLL
         IEnumerable<Achievement> GetAll(); //просмотреть перечень достижений
         void Remove(int index); //удалить достижение по индексу
         Achievement FindId(int index); //найти по индексу
+        Achievement FindName(string name); //найти по индексу
+        IEnumerable<Achievement> GetAllUsers(int index); //просмотреть перечень достижений определенного пользователя
+
     }
 }

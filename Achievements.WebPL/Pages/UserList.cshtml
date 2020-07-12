@@ -6,6 +6,7 @@
 
     Layout = "~/Layouts/Default.cshtml";
     var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+    var achievementLogic = DependencyResolver.Kernel.Get<IAchievementLogic>();
 }
 @section Header{}
 <body>
@@ -18,13 +19,22 @@
     {
         foreach (User item in userLogic.GetAll())
         {
-            <div class="file-row">
+        <div class="file-row">
 
-                @item.id
-                |
-                @item.login
+            @item.id
+            |
+            @item.login
+            :
+            <div></div>
+            @foreach (Achievement achievement in achievementLogic.GetAllUsers(item.id))
+            {
 
-            </div>
+                @achievement.name
+                <div></div>
+                
+            }
+
+        </div>
         }
     }
 </body>
