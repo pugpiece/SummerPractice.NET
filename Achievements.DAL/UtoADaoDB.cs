@@ -11,7 +11,7 @@ namespace Achievements.DAL
     public class UtoADaoDB : IUtoADao
     {
 
-        private string connectionstring = @"Data Source=.\SQLEXPRESS;Initial Catalog=Achievements;Integrated Security=True";
+        private string connectionstring = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Achievements;Integrated Security=True";
 
         public void Add(int idUser, int idAchievement)
         {

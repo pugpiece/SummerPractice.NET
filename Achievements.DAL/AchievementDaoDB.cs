@@ -10,7 +10,7 @@ namespace Achievements.DAL
 {
     public class AchievementDaoDB : IAchievementDao
     {
-        private string connectionstring = @"Data Source=.\SQLEXPRESS;Initial Catalog=Achievements;Integrated Security=True";
+        private string connectionstring = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Achievements;Integrated Security=True";
 
         public void Add(Achievement value)
         {

@@ -1,0 +1,38 @@
+﻿@using Entities
+@using Achievements.BLL
+@using Achievements.DependencyResolver
+@using Ninject
+@{
+
+    Layout = "~/Views/Layouts/Default.cshtml";
+    var achievementLogic = Achievements.DependencyResolver.DependencyResolver.Kernel.Get<IAchievementLogic>();
+}
+@section Header{}
+<body>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1 class="h1-title"> To see achievements please log in!</h1>
+
+    }
+    else
+    {
+        foreach (Achievement item in achievementLogic.GetAll())
+        {
+        <div class="file-row">
+
+            @item.id
+            |
+            @item.name
+            |
+            @item.description
+
+            <form action="~/Views/Pages/ShowAllLogic/Delete.cshtml" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="Action" value="Delete">
+                <input type="hidden" name="AchievementId" value="@item.id">
+                <button type="submit">Delete</button>
+            </form>
+
+        </div>
+        }
+    }
+</body>

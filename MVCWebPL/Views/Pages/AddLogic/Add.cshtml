@@ -1,0 +1,28 @@
+﻿@using Entities
+@using Achievements.BLL
+@using Achievements.DependencyResolver
+@using Achievements
+@using Ninject
+@{
+    Layout = null;
+    var achievementLogic = Achievements.DependencyResolver.DependencyResolver.Kernel.Get<IAchievementLogic>();
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (IsPost)
+    {
+        if (Request["Action"] != null &&
+            Request["Action"] == "Upload")
+        {
+
+            Achievement achievement = new Achievement(Request["AchievementName"], Request["AchievementDescription"]);
+            achievementLogic.Add(achievement);
+            Response.Redirect("/index.cshtml");
+        }
+    }
+}
+else
+{
+    Response.Redirect("/index.cshtml");
+}

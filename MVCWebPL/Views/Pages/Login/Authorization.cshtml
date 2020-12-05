@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title class="h1-login">Authorization</title>
+    <link href="~/Styles/Login.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="content">
+        <div class="container-for-buttons">
+
+            <h1 class="h1-login">Welcome!</h1>
+
+            <form action="~/Views/Pages/Login/SignIn.cshtml" method="post" enctype="multipart/form-data">
+                <button type="submit" class="button-sign-in">Sign In</button>
+            </form>
+
+            <form action="~/Views/Pages/Login/SignUp.cshtml" method="post" enctype="multipart/form-data">
+                <button type="submit" class="button-sign-up">Sign Up</button>
+            </form>
+
+            <form action="~/Views/index.cshtml" method="post" enctype="multipart/form-data">
+                <button type="submit" class="button-sign-in">Back</button>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>
