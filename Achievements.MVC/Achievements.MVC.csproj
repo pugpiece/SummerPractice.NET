@@ -207,7 +207,7 @@
       <Project>{a54a3d30-5e8f-480e-a3b3-c90c3725c5cb}</Project>
       <Name>Achievements.DependencyResolver</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Entities\Achievements.Entities.csproj">
+    <ProjectReference Include="..\Achievements.Entities\Achievements.Entities.csproj">
       <Project>{7001e0b0-6158-48e4-8a34-8e5772ce51cd}</Project>
       <Name>Achievements.Entities</Name>
     </ProjectReference>
