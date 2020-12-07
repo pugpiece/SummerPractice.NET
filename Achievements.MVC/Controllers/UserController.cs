@@ -2,7 +2,9 @@
 using Achievements.MVC.Models;
 using Achievements.MVC.ViewModels.User;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -24,22 +26,40 @@ namespace Achievements.MVC.Controllers
         }
 
 
-        public ActionResult GetUsers()
+        public ActionResult GetAll()
         {
-            var users = new SelectList(_usersModel.GetAllUsers(), "Id", "Login");
-            return View(users);
+            return View("~/Views/User/GetAll.cshtml", _usersModel.GetAllUsers());
         }
 
-        public ActionResult DeleteAchievement(int id)
+        public ActionResult Create()
         {
-            _usersModel.RemoveUser(_usersModel.FindId(id));
-            return RedirectToAction("GetUsers");
+            return View("Create", new CreateUserVM());
         }
 
-        public ActionResult AddAchievement(CreateUserVM user)
+        [HttpPost]
+
+        public ActionResult Create(CreateUserVM user)
         {
             _usersModel.CreateUser(user);
-            return RedirectToAction("GetUsers");
+            return RedirectToAction("GetAll");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            _usersModel.RemoveUser(id);
+            return RedirectToAction("GetAll");
+        }
+
+        public ActionResult FindId(int id)
+        {
+            var user = _usersModel.FindId(id);
+            return View(user);
+        }
+
+        public ActionResult FindLogin(string login)
+        {
+            var user = _usersModel.FindLogin(login);
+            return View(user);
         }
     }
 }

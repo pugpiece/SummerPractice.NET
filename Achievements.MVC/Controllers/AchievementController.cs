@@ -24,22 +24,34 @@ namespace Achievements.MVC.Controllers
         }
 
 
-        public ActionResult GetAchievements()
+        public ActionResult GetAll()
         {
-            var achievements = new SelectList(_achievementsModel.GetAllAchivements(), "Id", "Name", "Description");
-            return View(achievements);
+            return View("~/Views/Achievement/GetAll.cshtml", _achievementsModel.GetAllAchivements());
         }
 
-        public ActionResult DeleteAchievement(int id)
+        public ActionResult Create()
         {
-            _achievementsModel.RemoveAchivement(_achievementsModel.FindId(id));
-            return RedirectToAction("GetAchievements");
+            return View("Create", new CreateAchievementVM());
         }
 
-        public ActionResult AddAchievement(CreateAchievementVM achievement)
+        [HttpPost]
+
+        public ActionResult Create(CreateAchievementVM user)
         {
-            _achievementsModel.CreateAchivement(achievement);
-            return RedirectToAction("GetAchievements");
+            _achievementsModel.CreateAchivement(user);
+            return RedirectToAction("GetAll");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            _achievementsModel.RemoveAchivement(id);
+            return RedirectToAction("GetAll");
+        }
+
+        public ActionResult FindId(int id)
+        {
+            var user = _achievementsModel.FindId(id);
+            return View(user);
         }
 
 

@@ -30,9 +30,9 @@ namespace Achievements.MVC.Models
             _achievementLogic.Add(_mapper.Map<Achievement>(achievement));
         }
 
-        public void RemoveAchivement(ReadAchievementVM achievement)
+        public void RemoveAchivement(int id)
         {
-            _achievementLogic.Remove(_mapper.Map<Achievement>(achievement).id);
+            _achievementLogic.Remove(id);
         }
 
         public ReadAchievementVM FindId(int id)

@@ -175,12 +175,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\User\UsersView.cshtml" />
-    <Content Include="Views\Achievement\ViewAchievements.cshtml" />
-    <Content Include="Views\User\UserDelete.cshtml" />
-    <Content Include="Views\User\UserCreate.cshtml" />
-    <Content Include="Views\Achievement\DeleteAchievement.cshtml" />
-    <Content Include="Views\Achievement\CreateAchievement.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\Achievement\Delete.cshtml" />
+    <Content Include="Views\Achievement\Create.cshtml" />
+    <Content Include="Views\User\GetAll.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\Achievement\GetAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

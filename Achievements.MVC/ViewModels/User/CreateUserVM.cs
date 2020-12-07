@@ -10,9 +10,9 @@ namespace Achievements.MVC.ViewModels.User
     {
         [Required]
         [MaxLength(50)]
-        public string Login { set; get; }
+        public string Login { get; set; }
 
         [Required]
-        public string Password { set; get; }
+        public string Password { get; set; }
     }
 }

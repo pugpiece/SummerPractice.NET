@@ -25,14 +25,16 @@ namespace Achievements.MVC.Models
             return _mapper.Map<IEnumerable<ReadUserVM>>(_userLogic.GetAll());
         }
 
+        
+
         public void CreateUser(CreateUserVM user)
         {
             _userLogic.Add(_mapper.Map<User>(user));
         }
 
-        public void RemoveUser(ReadUserVM user)
+        public void RemoveUser(int id)
         {
-            _userLogic.Remove(_mapper.Map<User>(user).id);
+            _userLogic.Remove(id);
         }
 
         public bool Log(ReadUserVM user)
